@@ -13,3 +13,8 @@ out/
 *.log
 .env*
 .claude/settings.local.json
+
+# Original photos stay local: they carry GPS location, timestamps and phone model in EXIF.
+# The site uses metadata-free copies in wanderlust-journeys/public/images.
+Images/*
+!Images/website_prototype_image.jpg

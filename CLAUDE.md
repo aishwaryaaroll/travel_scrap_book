@@ -20,17 +20,32 @@ Next.js 16 (App Router, plain JSX) + Tailwind 4, static export (`output: "export
 - `destinations.json` (in display order) holds `name`, `date`, `color` (pastel stamp border), `hasSeasons`, and for
   seasonal trips `seasons[]` with `seasonName`, `date` and `color`. Image paths are filled in by `npm run images`.
 - Never modify the originals in `Images\`.
+- The originals carry GPS coordinates, timestamps and the phone model in EXIF. They are **git-ignored** (only
+  `website_prototype_image.jpg` is tracked) and must never be committed. The WebP copies are metadata-free because
+  sharp strips metadata by default: never add `.withMetadata()` / `.keepMetadata()` to the image script.
 
 ### Code map (`src\`)
 - `app\page.jsx`: view state (grid → season postcard → slideshow) and the open/close transitions.
 - `lib\transition.js`: zoom-from-stamp morph (View Transitions API, with a FLIP fallback).
 - `components\`: `StampGrid` (3×3 pages + arrows), `StampCard`, `SeasonModal`, `SlideshowModal` (keys/swipe),
   `ModalShell` (focus trap, Esc), `HeaderBanner` (ribbons), `SideQuotes` (quotes + side doodles),
-  `Doodles` (SVG doodle set, header/footer doodles, `TravelQuotes` paper notes).
+  `Doodles` (SVG doodle set, `DoodleLayer` header/footer doodles, `EdgeDoodles` for the bare window edges on
+  screens ≥1700px wide, `TravelQuotes` paper notes).
 - `styles\globals.css`: theme tokens, `.stamp-edge` perforation mask, view-transition timing.
 - On `lg`+ screens the page is exactly one window tall (no scrolling). The grid width comes from the window height
   (`lg:max-w-[min(940px,calc(97dvh-74px))]` in `StampGrid`). After layout changes, check with Playwright that
   `scrollHeight <= innerHeight` at 1366×768, 1440×900, 1536×864, 1600×1000 and 1920×1080.
+
+## Git / GitHub
+- Remote: https://github.com/aishwaryaaroll/travel_scrap_book (**public**), branch `main`. Credentials come from Git
+  Credential Manager; a push from a non-interactive shell can't show the sign-in prompt, so the user may have to
+  push once themselves.
+- Git lives in `C:\Program Files\Git\cmd`. Shells started before Git was installed may not have it on PATH.
+- Commits use the GitHub no-reply email set in the repo's local config. Never commit with a personal email.
+- Before every push, check that no personal data is included: emails, local `C:\Users\...` paths, IP addresses, tokens
+  or `.env` files, and that photos carry no EXIF.
+- Rewriting history (e.g. `git filter-branch`) deletes newly untracked files from the working tree. Back up or restore
+  them afterwards (from `refs/original/...`) before doing anything else.
 
 ## Node.js / npx
 Node.js is not installed system-wide. A portable Node v24.22.0 lives in `.tools\node\`.
