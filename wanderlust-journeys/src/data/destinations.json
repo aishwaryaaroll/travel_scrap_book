@@ -1,0 +1,203 @@
+[
+  {
+    "id": "alaska",
+    "name": "Alaska",
+    "color": "#f2a7a0",
+    "thumbnail": "/images/Alaska_thumbnail.webp",
+    "hasSeasons": true,
+    "seasons": [
+      {
+        "seasonName": "Fall",
+        "date": "Aug 2024",
+        "color": "#f6b98a",
+        "thumbnail": "/images/Alaska_fall_1_thumb.webp",
+        "images": [
+          "/images/Alaska_fall_1.webp",
+          "/images/Alaska_fall_2.webp",
+          "/images/Alaska_fall_3.webp",
+          "/images/Alaska_fall_4.webp",
+          "/images/Alaska_fall_5.webp",
+          "/images/Alaska_fall_6.webp",
+          "/images/Alaska_fall_7.webp",
+          "/images/Alaska_fall_8.webp",
+          "/images/Alaska_fall_9.webp",
+          "/images/Alaska_fall_10.webp",
+          "/images/Alaska_fall_11.webp"
+        ]
+      },
+      {
+        "seasonName": "Winter",
+        "date": "Feb 2026",
+        "color": "#a9cdea",
+        "thumbnail": "/images/Alaska_winter_1_thumb.webp",
+        "images": [
+          "/images/Alaska_winter_1.webp",
+          "/images/Alaska_winter_2.webp",
+          "/images/Alaska_winter_3.webp",
+          "/images/Alaska_winter_4.webp",
+          "/images/Alaska_winter_5.webp",
+          "/images/Alaska_winter_6.webp",
+          "/images/Alaska_winter_7.webp",
+          "/images/Alaska_winter_8.webp",
+          "/images/Alaska_winter_9.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "washington",
+    "name": "Washington",
+    "date": "Sep 2026",
+    "color": "#b5d99c",
+    "hasSeasons": false,
+    "thumbnail": "/images/Washington_thumbnail.webp",
+    "images": [
+      "/images/Washington_1.webp",
+      "/images/Washington_2.webp",
+      "/images/Washington_3.webp",
+      "/images/Washington_4.webp",
+      "/images/Washington_5.webp",
+      "/images/Washington_6.webp",
+      "/images/Washington_7.webp",
+      "/images/Washington_8.webp",
+      "/images/Washington_9.webp",
+      "/images/Washington_10.webp",
+      "/images/Washington_12.webp"
+    ]
+  },
+  {
+    "id": "maine",
+    "name": "Maine",
+    "date": "Aug 2025",
+    "color": "#f7dc7c",
+    "hasSeasons": false,
+    "thumbnail": "/images/Maine_thumbnail.webp",
+    "images": [
+      "/images/Maine_1.webp",
+      "/images/Maine_2.webp",
+      "/images/Maine_3.webp",
+      "/images/Maine_4.webp",
+      "/images/Maine_5.webp",
+      "/images/Maine_6.webp"
+    ]
+  },
+  {
+    "id": "new_hampshire",
+    "name": "New Hampshire",
+    "date": "Jun 2026",
+    "color": "#d9b98c",
+    "hasSeasons": false,
+    "thumbnail": "/images/NewHampshire_thumbnail.webp",
+    "images": [
+      "/images/NewHampshire_1.webp",
+      "/images/NewHampshire_2.webp",
+      "/images/NewHampshire_3.webp",
+      "/images/NewHampshire_4.webp",
+      "/images/NewHampshire_5.webp",
+      "/images/NewHampshire_6.webp"
+    ]
+  },
+  {
+    "id": "florida",
+    "name": "Florida",
+    "color": "#c9b3e6",
+    "thumbnail": "/images/Florida_thumbnail.webp",
+    "hasSeasons": true,
+    "seasons": [
+      {
+        "seasonName": "Winter",
+        "date": "Dec 2023",
+        "color": "#9fd3d6",
+        "thumbnail": "/images/Florida_winter_1_thumb.webp",
+        "images": [
+          "/images/Florida_winter_1.webp",
+          "/images/Florida_winter_2.webp",
+          "/images/Florida_winter_3.webp",
+          "/images/Florida_winter_4.webp"
+        ]
+      },
+      {
+        "seasonName": "Spring",
+        "date": "Mar 2025",
+        "color": "#f4b6cf",
+        "thumbnail": "/images/Florida_spring_1_thumb.webp",
+        "images": [
+          "/images/Florida_spring_1.webp",
+          "/images/Florida_spring_2.webp",
+          "/images/Florida_spring_3.webp",
+          "/images/Florida_spring_4.webp",
+          "/images/Florida_spring_5.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nevada",
+    "name": "Nevada",
+    "date": "Jun 2024",
+    "color": "#8ecfd0",
+    "hasSeasons": false,
+    "thumbnail": "/images/Nevada_thumbnail.webp",
+    "images": [
+      "/images/Nevada_1.webp",
+      "/images/Nevada_2.webp",
+      "/images/Nevada_3.webp",
+      "/images/Nevada_4.webp",
+      "/images/Nevada_5.webp"
+    ]
+  },
+  {
+    "id": "arizona",
+    "name": "Arizona",
+    "date": "Jun 2024",
+    "color": "#f4a874",
+    "hasSeasons": false,
+    "thumbnail": "/images/Arizona_thumbnail.webp",
+    "images": [
+      "/images/Arizona_1.webp",
+      "/images/Arizona_2.webp",
+      "/images/Arizona_3.webp",
+      "/images/Arizona_4.webp"
+    ]
+  },
+  {
+    "id": "new_york",
+    "name": "New York",
+    "date": "Jun 2025",
+    "color": "#9ec5ee",
+    "hasSeasons": false,
+    "thumbnail": "/images/NewYork_thumbnail.webp",
+    "images": [
+      "/images/NewYork_1.webp",
+      "/images/NewYork_2.webp",
+      "/images/NewYork_3.webp",
+      "/images/NewYork_4.webp"
+    ]
+  },
+  {
+    "id": "virginia",
+    "name": "Virginia",
+    "date": "May 2026",
+    "color": "#f3a9c4",
+    "hasSeasons": false,
+    "thumbnail": "/images/Virginia_thumbnail.webp",
+    "images": [
+      "/images/Virginia_1.webp",
+      "/images/Virginia_2.webp",
+      "/images/Virginia_3.webp",
+      "/images/Virginia_4.webp",
+      "/images/Virginia_5.webp"
+    ]
+  },
+  {
+    "id": "washington_dc",
+    "name": "Washington DC",
+    "date": "Oct 2025",
+    "color": "#a8dcb9",
+    "hasSeasons": false,
+    "thumbnail": "/images/WashingtonDC_thumbnail.webp",
+    "images": [
+      "/images/WashingtonDC_1.webp"
+    ]
+  }
+]

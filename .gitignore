@@ -1,0 +1,15 @@
+# Portable Node, Playwright CLI and their sandboxes (large binaries, machine-specific)
+.tools/
+.playwright/
+.playwright-cli/
+
+# Dependencies and build output
+node_modules/
+.next/
+out/
+.vercel/
+
+# Local-only files
+*.log
+.env*
+.claude/settings.local.json

@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-script: var(--font-caveat), "Caveat", cursive;
+  --font-hand: var(--font-patrick), "Patrick Hand", cursive;
+  --font-round: var(--font-quicksand), "Quicksand", system-ui, sans-serif;
+
+  --color-ink: #3b3530;
+  --color-ink-soft: #6b5f55;
+  --color-parchment: #faf6ee;
+  --color-ribbon: #f3e2bd;
+  --color-ribbon-dark: #d9c08d;
+}
+
+:root {
+  --ease-zoom: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --zoom-ms: 480ms;
+}
+
+html {
+  color: var(--color-ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-round);
+  background-color: #fceade;
+  /* Watercolor wash (spec §2.1) + soft blooms + a faint paper grain. */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .25 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(40% 35% at 12% 18%, rgba(248, 187, 208, 0.45), transparent 70%),
+    radial-gradient(35% 40% at 88% 22%, rgba(179, 229, 252, 0.55), transparent 70%),
+    radial-gradient(45% 35% at 20% 90%, rgba(255, 224, 178, 0.5), transparent 70%),
+    radial-gradient(40% 40% at 85% 85%, rgba(200, 230, 201, 0.55), transparent 70%),
+    linear-gradient(135deg, #fceade 0%, #e8f5e9 35%, #e1f5fe 70%, #fff9c4 100%);
+}
+
+/* ---------- Perforated postage-stamp edge ----------
+   Holes of radius --r sit on every edge, one every --t px. The solid content-box layer keeps
+   the interior opaque; padding is kept below (--t - --r) so interior grid holes stay covered. */
+.stamp-edge {
+  --r: 5px;
+  --t: 17px;
+  padding: calc(var(--r) + 4px);
+  background-color: var(--stamp, #fff);
+  -webkit-mask:
+    radial-gradient(var(--r) at var(--r) var(--r), #0000 96%, #000) calc(-1 * var(--r)) calc(-1 * var(--r)) / var(--t) var(--t) round,
+    linear-gradient(#000 0 0) content-box;
+  mask:
+    radial-gradient(var(--r) at var(--r) var(--r), #0000 96%, #000) calc(-1 * var(--r)) calc(-1 * var(--r)) / var(--t) var(--t) round,
+    linear-gradient(#000 0 0) content-box;
+}
+
+.stamp-edge--lg {
+  --r: 7px;
+  --t: 24px;
+  padding: calc(var(--r) + 6px);
+}
+
+/* Masking clips box-shadow, so the paper shadow lives on a wrapper. */
+.paper-shadow {
+  filter: drop-shadow(0 8px 10px rgba(60, 40, 20, 0.16)) drop-shadow(0 2px 2px rgba(60, 40, 20, 0.1));
+}
+
+/* Stamps sit slightly askew and straighten up when hovered or focused. */
+.stamp-tilt {
+  rotate: var(--tilt, 0deg);
+  transition:
+    rotate 350ms var(--ease-zoom),
+    translate 350ms var(--ease-zoom),
+    scale 350ms var(--ease-zoom);
+}
+
+.stamp-tilt:hover,
+.stamp-tilt:focus-visible {
+  rotate: 0deg;
+  translate: 0 -6px;
+  scale: 1.03;
+}
+
+/* Pastel paper texture inside a stamp's colored band. */
+.stamp-paper {
+  background-color: var(--stamp, #fff);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, 0.04));
+}
+
+/* ---------- Zoom transition (View Transitions API) ---------- */
+::view-transition-group(stamp-zoom) {
+  animation-duration: var(--zoom-ms);
+  animation-timing-function: var(--ease-zoom);
+}
+
+::view-transition-old(stamp-zoom),
+::view-transition-new(stamp-zoom) {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  animation-duration: var(--zoom-ms);
+  animation-timing-function: var(--ease-zoom);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 320ms;
+}
+
+/* The photo itself gets its own pair so it morphs crisply inside the frame. */
+::view-transition-group(photo-zoom) {
+  animation-duration: var(--zoom-ms);
+  animation-timing-function: var(--ease-zoom);
+}
+
+::view-transition-old(photo-zoom),
+::view-transition-new(photo-zoom) {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  animation-duration: var(--zoom-ms);
+  animation-timing-function: var(--ease-zoom);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 1ms !important;
+  }
+}
+
+/* ---------- Small motion helpers ---------- */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes photo-in {
+  from { opacity: 0; transform: scale(1.015); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fade-in 280ms ease-out both;
+}
+
+@keyframes photo-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.animate-photo-in {
+  animation: photo-in 380ms ease-out both;
+}
+
+.animate-photo-out {
+  animation: photo-out 380ms ease-in both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-photo-in {
+    animation: none;
+  }
+  .animate-photo-out {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Visible keyboard focus that fits the scrapbook look. */
+:focus-visible {
+  outline: 3px dashed #c46a5a;
+  outline-offset: 4px;
+  border-radius: 6px;
+}

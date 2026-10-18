@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "blockReadsOutsideWorkingDirectories": true,
+    "deny": [
+      "PowerShell(npx skills * -g*)",
+      "PowerShell(npx skills * --global*)",
+      "PowerShell(* skills.ps1 * -g*)",
+      "PowerShell(* skills.ps1 * --global*)"
+    ]
+  }
+}
