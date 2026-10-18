@@ -4,9 +4,13 @@ import {
   Camera,
   Cloud,
   Compass,
+  Globe,
   Heart,
   HotAirBalloon,
+  Leaves,
   MapPin,
+  MiniStamp,
+  Suitcase,
   Mountains,
   PalmTree,
   Passport,
@@ -18,7 +22,7 @@ import {
 } from "./Doodles";
 
 const QUOTES = {
-  left: ["Our greatest adventure is loving each other.", "Two hearts, one world."],
+  left: ["Adventures captured, memories preserved.", "Our story, written across the world."],
   right: ["Exploring the world, together.", "Our journey, our story."],
 };
 
@@ -41,6 +45,14 @@ function SideDoodles({ side }) {
         <Cloud className={`absolute ${inner} top-[28%] w-[min(6vh,52px)]`} />
         <Polaroid className={`absolute ${inner} top-[52%] w-[min(5.5vh,48px)] -rotate-[10deg]`} />
         <Star className={`absolute ${inner} top-[78%] w-[min(2.6vh,22px)]`} />
+
+        {/* fillers */}
+        <Leaves className={`absolute ${outer} top-[13%] w-[min(4vh,34px)] rotate-[-30deg]`} />
+        <Heart className={`absolute ${outer} top-[62%] w-[min(2.2vh,20px)] rotate-12`} color="#f4b6cf" />
+        <Heart className={`absolute ${inner} top-[40%] w-[min(2.2vh,20px)] -rotate-12`} color="#f6b98a" />
+        <MiniStamp className={`absolute ${inner} top-[90%] w-[min(3.4vh,30px)] rotate-[8deg]`} color="#a9cdea" />
+        {/* centerpiece between the two quotes */}
+        <Suitcase className="absolute left-1/2 top-[47%] w-[min(6.5vh,58px)] -translate-x-1/2 -rotate-3" color="#d9a066" />
       </div>
     );
   }
@@ -56,6 +68,15 @@ function SideDoodles({ side }) {
       <Snowflake className={`absolute ${inner} top-[31%] w-[min(3vh,26px)] rotate-12`} color="#9ec5ee" />
       <BoardingPass className={`absolute ${inner} top-[63%] w-[min(7vh,60px)] rotate-[8deg]`} />
       <Anchor className={`absolute ${inner} top-[78%] w-[min(3.6vh,32px)] -rotate-12`} />
+
+      {/* fillers */}
+      <Heart className={`absolute ${outer} top-[18%] w-[min(2.2vh,20px)] rotate-12`} />
+      <Leaves className={`absolute ${outer} top-[62%] w-[min(5vh,44px)] rotate-[200deg]`} />
+      <MiniStamp className={`absolute ${outer} top-[90%] w-[min(3.4vh,30px)] -rotate-[8deg]`} color="#f6d77a" />
+      <Star className={`absolute ${inner} top-[20%] w-[min(2.4vh,20px)]`} color="#f4b6cf" />
+      <Heart className={`absolute ${inner} top-[91%] w-[min(2.2vh,20px)] -rotate-6`} color="#f6b98a" />
+      {/* centerpiece between the two quotes */}
+      <Globe className="absolute left-1/2 top-[45%] w-[min(6vh,52px)] -translate-x-1/2 rotate-6" />
     </div>
   );
 }

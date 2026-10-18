@@ -7,7 +7,7 @@ import SideQuotes from "@/components/SideQuotes";
 import StampGrid from "@/components/StampGrid";
 import SeasonModal from "@/components/SeasonModal";
 import SlideshowModal from "@/components/SlideshowModal";
-import { DoodleLayer, TravelQuotes } from "@/components/Doodles";
+import { DoodleLayer, EdgeDoodles, TravelQuotes } from "@/components/Doodles";
 import { zoomTransition } from "@/lib/transition";
 
 const byId = Object.fromEntries(destinations.map((d) => [d.id, d]));
@@ -88,6 +88,7 @@ export default function Home() {
 
   return (
     <main className="relative mx-auto min-h-screen max-w-[1560px] overflow-x-clip px-4 pb-8 sm:px-6 lg:flex lg:h-dvh lg:min-h-0 lg:flex-col lg:overflow-hidden lg:pb-1">
+      <EdgeDoodles />
       <DoodleLayer />
       <TravelQuotes />
       <HeaderBanner />

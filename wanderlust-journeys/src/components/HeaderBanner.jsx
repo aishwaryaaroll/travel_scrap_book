@@ -54,8 +54,8 @@ export default function HeaderBanner() {
   return (
     <header className="relative z-10 flex shrink-0 justify-center pt-2 lg:pt-1">
       <h1 className="w-[min(88vw,620px)] lg:w-[min(560px,50vh)]">
-        <span className="sr-only">Aishu &amp; Sai&apos;s Wanderlust Journeys</span>
-        <Ribbon lines={["AISHU & SAI'S", "WANDERLUST JOURNEYS"]} className="w-full drop-shadow-[0_6px_6px_rgba(60,40,20,0.15)]" />
+        <span className="sr-only">Postcards from Our Adventures</span>
+        <Ribbon lines={["POSTCARDS FROM OUR", "ADVENTURES"]} className="w-full drop-shadow-[0_6px_6px_rgba(60,40,20,0.15)]" />
       </h1>
     </header>
   );

@@ -366,6 +366,35 @@ export function WashiTape({ className, style, color = "#f4b6cf" }) {
   );
 }
 
+/**
+ * On very wide screens the page (max 1560px) leaves bare bands at the window edges.
+ * This fixed layer fills them; it only shows when those bands are wide enough to hold doodles.
+ */
+export function EdgeDoodles() {
+  const w = "w-[min(3.6vw,72px)]";
+  return (
+    <div className="pointer-events-none fixed inset-0 -z-10 hidden select-none min-[1700px]:block" aria-hidden="true">
+      <Airplane className={`absolute left-[0.6vw] top-[6vh] ${w} -rotate-12`} />
+      <Leaves className={`absolute left-[1.8vw] top-[18vh] ${w} rotate-[-20deg]`} />
+      <HotAirBalloon className="absolute left-[1.2vw] top-[28vh] w-[min(2.6vw,52px)] -rotate-6" />
+      <Postmark className={`absolute left-[0.4vw] top-[42vh] ${w} rotate-[-10deg]`} label="ROME" color="#5c8a6f" />
+      <Cactus className="absolute left-[2vw] top-[53vh] w-[min(2.4vw,46px)]" />
+      <Camera className={`absolute left-[0.8vw] top-[66vh] ${w} -rotate-6`} color="#f6d77a" />
+      <Heart className="absolute left-[3vw] top-[77vh] w-[min(1.4vw,26px)] rotate-12" />
+      <Suitcase className={`absolute left-[0.6vw] top-[84vh] ${w} rotate-[4deg]`} color="#d9a066" />
+
+      <Cloud className={`absolute right-[0.8vw] top-[6vh] ${w}`} />
+      <Mountains className={`absolute right-[1.2vw] top-[17vh] ${w}`} />
+      <Snowflake className="absolute right-[3vw] top-[29vh] w-[min(1.6vw,30px)]" />
+      <Polaroid className="absolute right-[1vw] top-[38vh] w-[min(3vw,60px)] rotate-[8deg]" />
+      <BoardingPass className={`absolute right-[0.5vw] top-[52vh] ${w} -rotate-6`} />
+      <Anchor className="absolute right-[2.4vw] top-[63vh] w-[min(2vw,40px)] rotate-12" />
+      <Compass className="absolute right-[1vw] top-[74vh] w-[min(3vw,58px)] -rotate-12" />
+      <Star className="absolute right-[3vw] top-[88vh] w-[min(1.4vw,26px)]" color="#f6b98a" />
+    </div>
+  );
+}
+
 /** A travel quote handwritten on a scrap of lined paper, taped to the page. */
 function QuoteNote({ quote, author, className = "", tape = "#f4b6cf" }) {
   return (
@@ -445,6 +474,17 @@ export function DoodleLayer() {
       <Tag className="absolute bottom-[2vh] right-[0.5%] hidden w-[13vh] rotate-[-8deg] lg:block" label="HAPPY WANDERER" />
       <PaperPlane className="absolute bottom-[3vh] right-[28%] hidden w-[5.5vh] rotate-[10deg] lg:block" />
       <Postmark className="absolute bottom-[1vh] right-[34%] hidden w-[9vh] rotate-[-6deg] xl:block" label="PASSED" />
-    </div>
+
+      {/* ---- extra fillers: under the header notes and around the footer ribbon ---- */}
+      <Leaves className="absolute left-[15%] top-[12.5vh] hidden w-[7vh] rotate-[-6deg] lg:block" />
+      <Heart className="absolute left-[24%] top-[12vh] hidden w-[2.2vh] rotate-12 lg:block" color="#f4b6cf" />
+      <Star className="absolute left-[34%] top-[1.5vh] hidden w-[2.4vh] lg:block" />
+      <Leaves className="absolute right-[15%] top-[12.5vh] hidden w-[7vh] rotate-[172deg] -scale-y-100 lg:block" />
+      <Star className="absolute right-[24%] top-[12.5vh] hidden w-[2.2vh] rotate-12 lg:block" color="#f6b98a" />
+      <Heart className="absolute right-[34%] top-[1.5vh] hidden w-[2.2vh] -rotate-12 lg:block" />
+      <Compass className="absolute bottom-[2vh] left-[34.5%] hidden w-[4.5vh] rotate-12 lg:block" />
+      <Heart className="absolute bottom-[8vh] left-[37%] hidden w-[2vh] -rotate-6 lg:block" color="#f6b98a" />
+      <MiniStamp className="absolute bottom-[6.5vh] right-[10%] hidden w-[3.6vh] rotate-[-10deg] lg:block" color="#f4b6cf" />
+      <Star className="absolute bottom-[8vh] right-[38%] hidden w-[2vh] lg:block" color="#a9cdea" />    </div>
   );
 }

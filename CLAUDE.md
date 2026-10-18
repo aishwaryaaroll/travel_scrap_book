@@ -1,6 +1,6 @@
 # Travel_site
 
-"Aishu & Sai's Wanderlust Journeys": a scrapbook-style travel gallery. `spec.md` is the product spec, and
+"Postcards from Our Adventures" (originally specced as "Aishu & Sai's Wanderlust Journeys"): a scrapbook-style travel gallery. `spec.md` is the product spec, and
 `Images\website_prototype_image.jpg` is the visual reference.
 
 ## Website (`wanderlust-journeys\`)

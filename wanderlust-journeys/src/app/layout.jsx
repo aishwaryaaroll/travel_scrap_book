@@ -6,8 +6,8 @@ const patrick = Patrick_Hand({ subsets: ["latin"], weight: "400", variable: "--f
 const quicksand = Quicksand({ subsets: ["latin"], weight: ["500", "700"], variable: "--font-quicksand" });
 
 export const metadata = {
-  title: "Aishu & Sai's Wanderlust Journeys",
-  description: "A scrapbook of the places Aishu & Sai have explored together.",
+  title: "Postcards from Our Adventures",
+  description: "A scrapbook of the places we have explored together.",
 };
 
 export const viewport = {
