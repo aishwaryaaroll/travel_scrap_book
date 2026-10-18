@@ -5,7 +5,6 @@ import {
   Camera,
   Cloud,
   Compass,
-  FlightPath,
   Globe,
   Heart,
   HotAirBalloon,
@@ -79,12 +78,11 @@ function SideDoodles({ side }) {
       <Heart className={`absolute ${inner} top-[91%] w-[min(2.2vh,20px)] -rotate-6`} color="#f6b98a" />
       {/* centerpiece between the two quotes */}
       <Globe className="absolute left-1/2 top-[45%] w-[min(6vh,52px)] -translate-x-1/2 rotate-6" />
-      {/* plane flying from the page arrow toward the globe; anchored to the globe's left edge so it
-          stays in the gap at every size (the dotted trail only shows where the gap is wide enough) */}
-      <div className="absolute right-[calc(50%+min(3vh,26px)+14px)] top-[46.5%] flex items-center">
-        <FlightPath className="hidden w-[min(4vh,34px)] max-[1590px]:block" d="M4 52 C 60 72, 120 22, 196 40" />
-        <Airplane className="w-[min(4.6vh,40px)] -rotate-[8deg]" />
-      </div>
+      {/* plane flying toward the globe, centered under the inner snowflake above it. From 1590px wide the
+          snowflake sits right above the page arrow, so there the plane hugs the globe's left edge instead. */}
+      <Airplane
+        className={`absolute ${inner} top-[46.5%] w-[min(4.6vh,40px)] -translate-x-[calc((min(4.6vh,40px)-min(3vh,26px))/2)] -rotate-[8deg] min-[1590px]:left-auto min-[1590px]:right-[calc(50%+min(3vh,26px)+14px)] min-[1590px]:translate-x-0`}
+      />
     </div>
   );
 }
